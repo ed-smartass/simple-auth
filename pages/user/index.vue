@@ -9,8 +9,9 @@
                         <v-list-item-content>
                             <v-list-item-title class="headline mb-1">{{ profile.last_name }} {{ profile.first_name }}</v-list-item-title>
                         </v-list-item-content>
-                        <v-list-item-avatar size="80" color="grey">
-                            <v-img :src="profile.image"></v-img>
+                        <v-list-item-avatar v-if="!!profile.image"
+                            size="80" color="grey">
+                            <v-img :src="profile.image"/>
                         </v-list-item-avatar>
                     </v-list-item>
                     <v-list-item>
