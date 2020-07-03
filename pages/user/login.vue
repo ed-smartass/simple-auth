@@ -20,6 +20,8 @@
                         :error="!!errors.password"
                         :error-messages="!!errors.password ? [errors.password] : []"
                         @input="$set(errors, 'password', '')"/>
+                    <v-checkbox v-model="form.rememberMe"
+                        label="Запомнить"/>
                     <v-row>
                         <v-col md="8" class="mx-auto">
                             <v-btn color="primary" block dark large
@@ -49,7 +51,8 @@ export default {
             valid: false,
             form: {
                 login: '',
-                password: ''
+                password: '',
+                rememberMe: true
             },
             errors: {}
         }

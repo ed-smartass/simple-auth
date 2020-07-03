@@ -24,7 +24,6 @@ export const actions = {
         }
     },
     async setToken({ commit, dispatch }, token) {
-        this.$cookies.set('token', token, { path: '/', maxAge: 2147483646 })
         this.$axios.setToken(token)
         await commit('SET_TOKEN', token)
         await dispatch('fetchProfile')
@@ -36,8 +35,9 @@ export const actions = {
             await dispatch('logout')
         }
     },
-    async login({ dispatch }, { login, password }) {
+    async login({ dispatch }, { login, password, rememberMe }) {
         const response = await this.$axios.$post('/api/user/login', { login, password })
+        this.$cookies.set('token', response.token, rememberMe ? { path: '/', maxAge: 2147483646 } : { path: '/' })
         await dispatch('setToken', response.token)
     },
     async logout({ commit }) {
