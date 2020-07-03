@@ -1,5 +1,13 @@
 # simple-auth
 
+Users:
+
+pavel1337
+123123
+
+dmitry123
+password
+
 ## Build Setup
 
 ```bash
